@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "B3vPjcTOv7Tbc2w9GomKkr0Pq1Jgqy8APZh9kMK53G0n68Na6OC8oyKpAb2V8B/eJ3qSorcXYFDNSRJYDVBw0A==",
+  "success": true,
+  "projectFilePath": "C:\\xampp\\htdocs\\DT071G-moment3\\moment3.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\gamer\\.nuget\\packages\\newtonsoft.json\\13.0.3\\newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
