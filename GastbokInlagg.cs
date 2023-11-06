@@ -1,3 +1,4 @@
+// Klassen som representerar ett gästboksinlägg
 public class GastbokInlagg
 {
     public string Agare { get; set; }

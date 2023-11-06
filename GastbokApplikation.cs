@@ -3,17 +3,23 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.IO;
 
+// Programmets huvudklass
 public static class GastbokApplikation
 {
+    // Lista för att lagra gästboksinlägg
     private static List<GastbokInlagg> gastbokInlaggList = new List<GastbokInlagg>();
+    // Filnamn för att spara och ladda gästboken
     private static string filnamn = "gastbok.json";
 
+// Metod för att köra gästbokapplikationen
     public static void Run()
     {
+        // Ladda gästboken från filen vid programstart
         LaddaGastbok();
 
         while (true)
         {
+            // Meny
             Console.WriteLine("Välkommen till gästboken!");
             Console.WriteLine("1. Lägg till inlägg");
             Console.WriteLine("2. Ta bort inlägg");
@@ -38,6 +44,7 @@ public static class GastbokApplikation
                     break;
 
                 case "4":
+                    // Spara Gästboken i json-filen och avsluta programmet
                     SparaGastbok();
                     return;
 
@@ -48,10 +55,12 @@ public static class GastbokApplikation
 
             Console.WriteLine("\nTryck på valfri tangent för att fortsätta...");
             Console.ReadKey();
+            // Rensa konsolfönstret för nästa iteration
             Console.Clear();
         }
     }
 
+    // Metod för att lägga till ett gästboksinlägg
     private static void LaggTillInlagg()
     {
         Console.Write("Ange ägare till inlägget: ");
@@ -72,10 +81,12 @@ public static class GastbokApplikation
         }
     }
 
+    // Metod för att ta bort ett gästboksinlägg
     private static void TaBortInlagg()
     {
         if (gastbokInlaggList.Count > 0)
         {
+            // Visa alla inlägg för användaren att välja från
             VisaAllaInlagg();
             Console.Write("Ange index på inlägget att ta bort: ");
             if (int.TryParse(Console.ReadLine(), out int index) && index >= 0 && index < gastbokInlaggList.Count)
@@ -94,6 +105,7 @@ public static class GastbokApplikation
         }
     }
 
+    // Metod för att visa alla gästboksinlägg
     private static void VisaAllaInlagg()
     {
         if (gastbokInlaggList.Count > 0)
@@ -110,6 +122,7 @@ public static class GastbokApplikation
         }
     }
 
+    // Metod för att spara gästboken i en JSON-fil
     private static void SparaGastbok()
     {
         string json = JsonConvert.SerializeObject(gastbokInlaggList, Formatting.Indented);
@@ -117,6 +130,7 @@ public static class GastbokApplikation
         Console.WriteLine("Gästboken har sparats.");
     }
 
+    // Metod för att ladda gästboken från en JSON-fil
     private static void LaddaGastbok()
     {
         if (File.Exists(filnamn))
